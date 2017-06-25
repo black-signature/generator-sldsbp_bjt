@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "salesforce-lightning-design-system": "^2.3.1",
-    "jquery": "^3.2.1"
+    "salesforce-lightning-design-system": "latest",
+    "jquery": "1.12.0"
   }
 }
