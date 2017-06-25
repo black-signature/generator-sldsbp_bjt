@@ -1,6 +1,6 @@
 {
   "name": "generator-sldsbp_bjt",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "SLDS boiler plate created by Balu John Thomas (BJT)",
   "main": "index.js",
   "repository": "black-signature/generator-sldsbp_bjt",
@@ -24,9 +24,9 @@
     "globby": "^4.0.0",
     "yeoman-assert": "^2.0.0",
     "yeoman-generator": "^0.22.2",
-	"gulp": "latest",
-	"gulp-uglify": "latest",
-	"gulp-replace": "latest"
+	"gulp": "^3.9.1",
+	"gulp-uglify": "^3.0.0",
+	"gulp-replace": "^0.6.1"
   },
   "engines": {
     "node": ">=0.10.0"
