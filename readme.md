@@ -24,7 +24,7 @@ To install npm dependencies, run
 $ npm install
 ```
 
-To install SLDS and jQuery dependencies by default, run
+To install SLDS and jQuery as bower components, run
 
 ```
 $ bower install
