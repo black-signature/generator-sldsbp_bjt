@@ -1,6 +1,6 @@
-# SLDS Boilerplate generator
+# SLDS Boilerplate - yeoman generator
 
-> Scaffolds out [SLDS Boilerplate]
+> Scaffolds out [SLDS Boilerplate] using yeoman
 
 
 ## Install
