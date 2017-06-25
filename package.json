@@ -8,7 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "html",
+    "slds boilerplate",
+    "template",
+    "slds",
+	"sldsbp",
+	"salesforce lightning design system boilerplate"
   ],
   "author": {
     "name": "Balu John Thomas (BJT)",
