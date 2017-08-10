@@ -36,6 +36,8 @@ Once you are done creating static pages, run
 $ gulp
 ```
 
+'dist' folder will be created with all the static pages and their dependencies, which are ready for production
+
 ## Author
 
 Balu John Thomas (BJT) [balujohnthomas@gmail.com]
