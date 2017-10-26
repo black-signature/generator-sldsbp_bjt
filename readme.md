@@ -40,4 +40,4 @@ $ gulp
 
 ## Author
 
-Balu John Thomas (BJT) [balujohnthomas@gmail.com]
+Balu John Thomas (BJT) [balu.j.thomas@pwc.com]
