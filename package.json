@@ -3,7 +3,7 @@
   "version": "1.2.3",
   "description": "SLDS boiler plate created by Balu John Thomas (BJT)",
   "main": "index.js",
-  "repository": "UserExperience-SDC-Bangalore/generator-sldsbp_bjt",
+  "repository": "black-signature/generator-sldsbp_bjt",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +18,7 @@
   ],
   "author": {
     "name": "Balu John Thomas (BJT)",
-    "email": "balu.j.thomas@pwc.com"
+    "email": "balujohnthomas@gmail.com"
   },
   "dependencies": {
     "globby": "^4.0.0",
