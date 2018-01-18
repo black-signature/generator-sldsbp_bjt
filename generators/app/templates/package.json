@@ -4,10 +4,14 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-	"bower": "latest",
-	"gulp": "^3.9.1",
-	"gulp-uglify": "^3.0.0",
-	"gulp-replace": "^0.6.1"
+    "@salesforce-ux/design-system": "^2.5.0",
+    "jquery": "2.2.4"
+  },
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.6.1",
+    "gulp-uglify": "^3.0.0"
   },
   "engines": {
     "node": ">=0.10.0"

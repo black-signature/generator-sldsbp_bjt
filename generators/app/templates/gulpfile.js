@@ -2,18 +2,20 @@
  * Gulp file to make the page distributable under dist folder
  * 
  * Author   : Balu John Thomas
- * Version  : 1.4
+ * Version  : 2.0
  * Support  : balujohnthomas@gmail.com
  */ 
 
 var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var replace = require('gulp-replace');
+var fs = require('fs');
+var packageJSON = JSON.parse(fs.readFileSync('./package.json'));
 
 /*** Copy SLDS assets */
-gulp.task("copy:bower_lightning", function(){
+gulp.task("copy:node_lightning", function(){
 	return gulp.src([
-        'bower_components/salesforce-lightning-design-system/assets/**'
+        'node_modules/@salesforce-ux/design-system/assets/**'
     ])
     .pipe(gulp.dest('dist/SLDS'));
 });
@@ -21,19 +23,22 @@ gulp.task("copy:bower_lightning", function(){
 /*** Copy jQuery */
 gulp.task("copy:jquery", function(){
 	return gulp.src([
-        'bower_components/jquery/dist/jquery.min.js'
+        'node_modules/jquery/dist/jquery.min.js'
     ])
     .pipe(gulp.dest('dist/lib'));
 });
 
-/*** Copy All other bower components except SLDS and jQuery */
+/*** Copy All other dependencies except SLDS and jQuery */
 gulp.task('copy:other_components', function() {
-  return gulp.src([
-      'bower_components/**',
-      '!bower_components/{salesforce-lightning-design-system,salesforce-lightning-design-system/**}',
-      '!bower_components/{jquery,jquery/**}',
-    ])
-    .pipe(gulp.dest('dist/plugins'));
+	var allDepsNode = packageJSON["dependencies"];
+	var allDeps = [];
+	for(var key in allDepsNode){
+		if(key !== "jquery" && key !== "@salesforce-ux/design-system"){ 
+			allDeps.push('node_modules/'+'{'+key+','+key+'/**}');
+		}
+	}
+	
+	return gulp.src(allDeps).pipe(gulp.dest('dist/plugins'));
 });
 
 /*** Copy and Minify Custom Scripts */
@@ -44,6 +49,7 @@ gulp.task("copy:scripts", function(){
 	.pipe(uglify())
     .pipe(gulp.dest('dist/custom/js'));
 });
+
 
 /*** Copy CSS */
 gulp.task("copy:css", function(){
@@ -72,14 +78,15 @@ gulp.task("copy:static_htmls", function(){
 /*** Replace all references within dist */
 gulp.task("replace:path_references", function(){
   gulp.src(['dist/*.html'])
-    .pipe(replace('bower_components/salesforce-lightning-design-system/assets/', 'SLDS/'))
-    .pipe(replace('bower_components/jquery/dist/', 'lib/'))
-    .pipe(replace('bower_components/', 'plugins/'))
+    .pipe(replace('node_modules/@salesforce-ux/design-system/assets/', 'SLDS/'))
+    .pipe(replace('node_modules/jquery/dist/', 'lib/'))
+    .pipe(replace('node_modules/', 'plugins/'))
     .pipe(replace('js/', 'custom/js/'))
     .pipe(replace('css/', 'custom/css/'))
     .pipe(replace('img/', 'custom/img/'))
     .pipe(gulp.dest('dist/'));
 });
+
 
 /*** Run tasks sequentially -- alternative till Gulp 4 */
 function runSequential( tasks ) {
@@ -93,5 +100,5 @@ function runSequential( tasks ) {
 }
 
 gulp.task("default", function(){
-    runSequential(["copy:bower_lightning", "copy:jquery", "copy:scripts", "copy:css", "copy:images", "copy:other_components", "copy:static_htmls", "replace:path_references"]);
+    runSequential(["copy:node_lightning", "copy:jquery", "copy:scripts", "copy:css", "copy:images", "copy:other_components", "copy:static_htmls", "replace:path_references"]);
 });
