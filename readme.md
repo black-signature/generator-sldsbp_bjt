@@ -18,16 +18,10 @@ Run it with [`yo`](https://github.com/yeoman/yo):
 $ yo sldsbp_bjt
 ```
 
-To install npm dependencies, run
+To install npm dependencies and components (SLDS and jQuery), run
 
 ```
 $ npm install
-```
-
-To install SLDS and jQuery as bower components, run
-
-```
-$ bower install
 ```
 
 Once you are done creating static pages, run
